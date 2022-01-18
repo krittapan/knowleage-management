@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:kmrs/resources/auth_methods.dart';
+import 'package:kmrs/screen/login/login_screen.dart';
 import 'package:kmrs/utils/colors.dart';
 import 'package:kmrs/utils/global_variable.dart';
+import 'package:kmrs/widget/bottom_bar/buttom_bar.dart';
 
 class WebScreenLayout extends StatefulWidget {
   const WebScreenLayout({Key? key}) : super(key: key);
@@ -46,46 +49,37 @@ class _WebScreenLayoutState extends State<WebScreenLayout> {
       appBar: AppBar(
         backgroundColor: mobileBackgroundColor,
         centerTitle: false,
-        title: SvgPicture.asset(
-          'assets/ic_instagram.svg',
-          color: primaryColor,
-          height: 32,
+        title: Row(
+
+          children: [
+            SvgPicture.asset(
+              'assets/ic_instagram.svg',
+              color: primaryColor,
+              height: 32,
+            ),
+            const Center(child: Text('Dashboard',style: TextStyle(color: Colors.black) ,),),
+          ],
         ),
         actions: [
-          IconButton(
-            icon: Icon(
-              Icons.home,
-              color: _page == 0 ? primaryColor : secondaryColor,
+          // IconButton(
+          //   icon: Icon(
+          //     Icons.home,
+          //     color: _page == 0 ? primaryColor : secondaryColor,
+          //   ),
+          //   onPressed: () => navigationTapped(0),
+          // ),
+          ElevatedButton.icon(
+            style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(Colors.white)),
+            onPressed: ()async {
+              await AuthMethods().signOut();
+              Navigator.of(context)
+              .pushReplacement(
+                MaterialPageRoute(builder: (context) => const LoginScreen(),),);},
+            icon: const Icon(
+              Icons.logout_outlined,
+              color: Colors.red,
             ),
-            onPressed: () => navigationTapped(0),
-          ),
-          IconButton(
-            icon: Icon(
-              Icons.search,
-              color: _page == 1 ? primaryColor : secondaryColor,
-            ),
-            onPressed: () => navigationTapped(1),
-          ),
-          IconButton(
-            icon: Icon(
-              Icons.add_a_photo,
-              color: _page == 2 ? primaryColor : secondaryColor,
-            ),
-            onPressed: () => navigationTapped(2),
-          ),
-          IconButton(
-            icon: Icon(
-              Icons.favorite,
-              color: _page == 3 ? primaryColor : secondaryColor,
-            ),
-            onPressed: () => navigationTapped(3),
-          ),
-          IconButton(
-            icon: Icon(
-              Icons.person,
-              color: _page == 4 ? primaryColor : secondaryColor,
-            ),
-            onPressed: () => navigationTapped(4),
+            label: const Text('ออกจากระบบ',style: TextStyle(color: Colors.black)),
           ),
         ],
       ),
@@ -95,6 +89,7 @@ class _WebScreenLayoutState extends State<WebScreenLayout> {
         controller: pageController,
         onPageChanged: onPageChanged,
       ),
+      bottomNavigationBar: const ButtomAppBar(),
     );
   }
 }

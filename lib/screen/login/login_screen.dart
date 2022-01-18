@@ -3,7 +3,10 @@ import 'package:kmrs/resources/auth_methods.dart';
 import 'package:kmrs/responsive/mobile_screen_layout.dart';
 import 'package:kmrs/responsive/responsive_layout.dart';
 import 'package:kmrs/responsive/web_screen_layout.dart';
+import 'package:kmrs/screen/edit_dashboard/edit_dashboard_screen.dart';
+import 'package:kmrs/utils/colors.dart';
 import 'package:kmrs/utils/utils.dart';
+import 'package:kmrs/widget/bottom_bar/buttom_bar.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -29,7 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
     });
     String res = await AuthMethods().loginUser(
         email: _emailController.text, password: _passwordController.text);
-    if (res == 'success') {
+    if (res == 'สำเร็จ') {
       Navigator.of(context).pushAndRemoveUntil(
           MaterialPageRoute(
             builder: (context) => const ResponsiveLayout(
@@ -56,6 +59,7 @@ class _LoginScreenState extends State<LoginScreen> {
     print(size.height);
     print(size.width);
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Container(
           width: size.width,
@@ -119,8 +123,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         Radius.circular(25),
                       ),
                     ),
-                    child: Center(
-                      child: SingleChildScrollView(
+                    child: Container(
+                      child: Center(
                         child: Padding(
                           padding: const EdgeInsets.all(40),
                           child: Column(
@@ -135,9 +139,9 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                               const SizedBox(height: 8),
                               Container(
-                                width: 30,
+                                width: 80,
                                 child: const Divider(
-                                  color: Colors.green,
+                                  color: primaryColor,
                                   thickness: 2,
                                 ),
                               ),
@@ -148,13 +152,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                   hintText: 'ชื่อผู้ใช้',
                                   labelText: 'ชื่อผู้ใช้',
                                   suffixIcon: Icon(
-                                    Icons.mail_outline,
+                                    Icons.person_outlined,
                                   ),
                                 ),
                               ),
                               const SizedBox(height: 32),
                               TextField(
                                 controller: _passwordController,
+                                obscureText: true,
                                 decoration: const InputDecoration(
                                   hintText: 'รหัสผ่าน',
                                   labelText: 'รหัสผ่าน',
@@ -165,12 +170,14 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                               const SizedBox(height: 64),
                               ElevatedButton(
-                                  onPressed: () {loginUser();},
+                                  onPressed: () {
+                                    loginUser();
+                                  },
                                   child: const Text('เข้าสู่ระบบ'),
                                   style: ButtonStyle(
-                                      backgroundColor:
-                                          MaterialStateProperty.all<Color>(
-                                              Colors.green))),
+                                      backgroundColor:MaterialStateProperty.all<Color>(primaryColor),
+                                  ),
+                              ),
                             ],
                           ),
                         ),
@@ -183,43 +190,7 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: Container(
-        height: size.height * 0.15,
-        color: Colors.grey[400],
-        child: Align(
-          alignment: Alignment.topLeft,
-          child: Padding(
-            padding: const EdgeInsets.all(12),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Text(
-                  "มีปัญหาการใช้งานระบบติดต่อ",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 14,
-                  ),
-                ),
-                Text(
-                  "โทร 02-942-8445-9",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 14,
-                  ),
-                ),
-                Text(
-                  "E-mail: fgra@ku.ac.th",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 14,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
+      bottomNavigationBar: const ButtomAppBar(),
     );
   }
 }
