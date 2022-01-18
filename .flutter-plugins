@@ -7,3 +7,6 @@ firebase_core=/Users/krittapanhuttapata/development/flutter/.pub-cache/hosted/pu
 firebase_core_web=/Users/krittapanhuttapata/development/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.5.3/
 firebase_storage=/Users/krittapanhuttapata/development/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage-10.2.5/
 firebase_storage_web=/Users/krittapanhuttapata/development/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage_web-3.2.6/
+flutter_plugin_android_lifecycle=/Users/krittapanhuttapata/development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-2.0.5/
+image_picker=/Users/krittapanhuttapata/development/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker-0.8.4+4/
+image_picker_for_web=/Users/krittapanhuttapata/development/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker_for_web-2.1.5/
