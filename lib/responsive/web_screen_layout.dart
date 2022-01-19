@@ -50,7 +50,6 @@ class _WebScreenLayoutState extends State<WebScreenLayout> {
         backgroundColor: mobileBackgroundColor,
         centerTitle: false,
         title: Row(
-
           children: [
             SvgPicture.asset(
               'assets/ic_instagram.svg',
