@@ -7,7 +7,7 @@ class ButtomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-        height: size.height * 0.15,
+        height: 100,
         color: const Color.fromRGBO(116, 120,123, 1),
         child: Align(
           alignment: Alignment.topLeft,

@@ -4,7 +4,6 @@ import 'package:kmrs/resources/auth_methods.dart';
 import 'package:kmrs/screen/login/login_screen.dart';
 import 'package:kmrs/utils/colors.dart';
 import 'package:kmrs/utils/global_variable.dart';
-import 'package:kmrs/widget/bottom_bar/buttom_bar.dart';
 
 class WebScreenLayout extends StatefulWidget {
   const WebScreenLayout({Key? key}) : super(key: key);
@@ -48,15 +47,15 @@ class _WebScreenLayoutState extends State<WebScreenLayout> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: mobileBackgroundColor,
-        centerTitle: false,
+        automaticallyImplyLeading: false,
+        centerTitle: true,
         title: Row(
-          children: [
+          children: <Widget>[
             SvgPicture.asset(
-              'assets/ic_instagram.svg',
+              'assets/ku_km_logo.svg',
               color: primaryColor,
-              height: 32,
+              height: 62,
             ),
-            const Center(child: Text('Dashboard',style: TextStyle(color: Colors.black) ,),),
           ],
         ),
         actions: [
@@ -88,7 +87,6 @@ class _WebScreenLayoutState extends State<WebScreenLayout> {
         controller: pageController,
         onPageChanged: onPageChanged,
       ),
-      bottomNavigationBar: const ButtomAppBar(),
     );
   }
 }

@@ -23,6 +23,7 @@ class AuthMethods {
     required String email,
     required String password,
     required String username,
+    required String organization,
   }) async {
     String res = "เกิดข้อผิดพลาด";
     try {
@@ -39,6 +40,7 @@ class AuthMethods {
         model.User _user = model.User(
           username: username,
           uid: cred.user!.uid,
+          organization: organization,
         );
 
         // adding user in our database

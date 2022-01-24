@@ -7,6 +7,6 @@ const webScreenSize = 600;
 
 List<Widget> homeScreenItems = [
   
-  const EditDashboardScreen(),
+  EditDashboardScreen(uid: FirebaseAuth.instance.currentUser!.uid,),
 
 ];

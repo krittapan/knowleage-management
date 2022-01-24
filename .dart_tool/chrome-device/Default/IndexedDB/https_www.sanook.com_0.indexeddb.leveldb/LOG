@@ -1,0 +1,6 @@
+2022/01/22-23:18:38.298 b3bf Creating DB /private/var/folders/qz/6w86jpf13n58yq0789kr9gjr0000gn/T/flutter_tools.ksf1Cl/flutter_tools_chrome_device.0d1Mab/Default/IndexedDB/https_www.sanook.com_0.indexeddb.leveldb since it was missing.
+2022/01/22-23:18:38.305 b3bf Reusing MANIFEST /private/var/folders/qz/6w86jpf13n58yq0789kr9gjr0000gn/T/flutter_tools.ksf1Cl/flutter_tools_chrome_device.0d1Mab/Default/IndexedDB/https_www.sanook.com_0.indexeddb.leveldb/MANIFEST-000001
+2022/01/22-23:18:43.417 8e07 Level-0 table #5: started
+2022/01/22-23:18:43.419 8e07 Level-0 table #5: 1747 bytes OK
+2022/01/22-23:18:43.424 8e07 Delete type=0 #3
+2022/01/22-23:18:43.424 8e07 Manual compaction at level-0 from (begin) .. (end); will stop at (end)

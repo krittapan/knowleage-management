@@ -123,63 +123,61 @@ class _LoginScreenState extends State<LoginScreen> {
                         Radius.circular(25),
                       ),
                     ),
-                    child: Container(
-                      child: Center(
-                        child: Padding(
-                          padding: const EdgeInsets.all(40),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              const Text(
-                                "ลงชื่อเข้าใช้งาน",
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  color: Colors.black,
+                    child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(40),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text(
+                              "ลงชื่อเข้าใช้งาน",
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.black,
+                              ),
+                            ),
+                            const SizedBox(height: 8),
+                            const SizedBox(
+                              width: 80,
+                              child: Divider(
+                                color: primaryColor,
+                                thickness: 2,
+                              ),
+                            ),
+                            const SizedBox(height: 32),
+                            TextField(
+                              controller: _emailController,
+                              decoration: const InputDecoration(
+                                hintText: 'ชื่อผู้ใช้',
+                                labelText: 'ชื่อผู้ใช้',
+                                suffixIcon: Icon(
+                                  Icons.person_outlined,
                                 ),
                               ),
-                              const SizedBox(height: 8),
-                              Container(
-                                width: 80,
-                                child: const Divider(
-                                  color: primaryColor,
-                                  thickness: 2,
+                            ),
+                            const SizedBox(height: 32),
+                            TextField(
+                              controller: _passwordController,
+                              obscureText: true,
+                              decoration: const InputDecoration(
+                                hintText: 'รหัสผ่าน',
+                                labelText: 'รหัสผ่าน',
+                                suffixIcon: Icon(
+                                  Icons.lock_outline,
                                 ),
                               ),
-                              const SizedBox(height: 32),
-                              TextField(
-                                controller: _emailController,
-                                decoration: const InputDecoration(
-                                  hintText: 'ชื่อผู้ใช้',
-                                  labelText: 'ชื่อผู้ใช้',
-                                  suffixIcon: Icon(
-                                    Icons.person_outlined,
-                                  ),
+                            ),
+                            const SizedBox(height: 64),
+                            ElevatedButton(
+                                onPressed: () {
+                                  loginUser();
+                                },
+                                child: const Text('เข้าสู่ระบบ'),
+                                style: ButtonStyle(
+                                    backgroundColor:MaterialStateProperty.all<Color>(primaryColor),
                                 ),
-                              ),
-                              const SizedBox(height: 32),
-                              TextField(
-                                controller: _passwordController,
-                                obscureText: true,
-                                decoration: const InputDecoration(
-                                  hintText: 'รหัสผ่าน',
-                                  labelText: 'รหัสผ่าน',
-                                  suffixIcon: Icon(
-                                    Icons.lock_outline,
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(height: 64),
-                              ElevatedButton(
-                                  onPressed: () {
-                                    loginUser();
-                                  },
-                                  child: const Text('เข้าสู่ระบบ'),
-                                  style: ButtonStyle(
-                                      backgroundColor:MaterialStateProperty.all<Color>(primaryColor),
-                                  ),
-                              ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
